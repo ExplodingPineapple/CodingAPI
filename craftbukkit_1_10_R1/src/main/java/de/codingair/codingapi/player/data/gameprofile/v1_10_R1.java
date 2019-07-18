@@ -1,19 +1,21 @@
-package de.codingair.codingapi.player.data.gameprofile.version;
+package de.codingair.codingapi.player.data.gameprofile;
 
 import com.mojang.authlib.GameProfile;
 import de.codingair.codingapi.player.data.Skin;
-import net.minecraft.server.v1_11_R1.*;
-import org.bukkit.craftbukkit.v1_11_R1.*;
-import org.bukkit.craftbukkit.v1_11_R1.entity.*;
+import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.craftbukkit.v1_10_R1.CraftServer;
+import org.bukkit.craftbukkit.v1_10_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_10_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public class GameProfileUtils_v1_11 {
-	
-	public static void updateGameProfile(Plugin plugin, Player p, Skin skin, String nickName) {
+class v1_10_R1 extends InternalsProvider {
+
+	@Override
+	void updateGameProfile(Plugin plugin, Player p, Skin skin, String nickName) {
 		CraftPlayer cp = (CraftPlayer) p;
 		EntityPlayer enP = cp.getHandle();
 		
@@ -48,7 +50,9 @@ public class GameProfileUtils_v1_11 {
 		
 		cp.getHandle().playerConnection.sendPacket(destroy);
 		cp.getHandle().playerConnection.sendPacket(tabRemove);
+		
 		cp.setHealth(0);
+		
 		
 		Bukkit.getOnlinePlayers().forEach(all -> {
 			if(!all.getName().equalsIgnoreCase(p.getName())){
@@ -84,8 +88,9 @@ public class GameProfileUtils_v1_11 {
 			}
 		}, 2L);
 	}
-	
-	public static void updateOtherGameProfile(Plugin plugin, Player p, Player other, Skin skin, String nickName) {
+
+	@Override
+	void updateOtherGameProfile(Plugin plugin, Player p, Player other, Skin skin, String nickName) {
 		CraftPlayer cp = (CraftPlayer) other;
 		EntityPlayer enP = cp.getHandle();
 		

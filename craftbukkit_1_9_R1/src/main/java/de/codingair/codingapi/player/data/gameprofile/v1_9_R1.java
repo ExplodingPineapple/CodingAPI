@@ -1,4 +1,4 @@
-package de.codingair.codingapi.player.data.gameprofile.version;
+package de.codingair.codingapi.player.data.gameprofile;
 
 import com.mojang.authlib.GameProfile;
 import de.codingair.codingapi.player.data.Skin;
@@ -11,9 +11,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public class GameProfileUtils_v1_9 {
-	
-	public static void updateGameProfile(Plugin plugin, Player p, Skin skin, String nickName) {
+class v1_9_R1 extends InternalsProvider {
+
+	@Override
+	void updateGameProfile(Plugin plugin, Player p, Skin skin, String nickName) {
 		CraftPlayer cp = (CraftPlayer) p;
 		EntityPlayer enP = cp.getHandle();
 		
@@ -84,8 +85,9 @@ public class GameProfileUtils_v1_9 {
 			}
 		}, 2L);
 	}
-	
-	public static void updateOtherGameProfile(Plugin plugin, Player p, Player other, Skin skin, String nickName) {
+
+	@Override
+	void updateOtherGameProfile(Plugin plugin, Player p, Player other, Skin skin, String nickName) {
 		CraftPlayer cp = (CraftPlayer) other;
 		EntityPlayer enP = cp.getHandle();
 		
