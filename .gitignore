@@ -1,5 +1,6 @@
-# Created by https://www.gitignore.io/api/eclipse,intellij,visualstudiocode
-# Edit at https://www.gitignore.io/?templates=eclipse,intellij,visualstudiocode
+
+# Created by https://www.gitignore.io/api/maven,eclipse,intellij,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=maven,eclipse,intellij,visualstudiocode
 
 ### Eclipse ###
 .metadata
@@ -151,6 +152,18 @@ fabric.properties
 # Sonarlint plugin
 .idea/sonarlint
 
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -162,4 +175,4 @@ fabric.properties
 # Ignore all local history of files
 .history
 
-# End of https://www.gitignore.io/api/eclipse,intellij,visualstudiocode
+# End of https://www.gitignore.io/api/maven,eclipse,intellij,visualstudiocode
